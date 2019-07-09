@@ -1,4 +1,4 @@
-module micro-core-cli
+module github.com/Jarnpher553/micro-core-cli
 
 require (
 	github.com/spf13/cobra v0.0.5
