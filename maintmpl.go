@@ -4,11 +4,11 @@ const mainTmpl = `
 package main
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/config"
-	"gitee.com/jarnpher_rice/micro-core/repo"
-	"gitee.com/jarnpher_rice/micro-core/router"
-	"gitee.com/jarnpher_rice/micro-core/server"
-	"gitee.com/jarnpher_rice/micro-core/service"
+	"github.com/Jarnpher553/micro-core/config"
+	"github.com/Jarnpher553/micro-core/repo"
+	"github.com/Jarnpher553/micro-core/router"
+	"github.com/Jarnpher553/micro-core/server"
+	"github.com/Jarnpher553/micro-core/service"
 	"{{name}}/services"
 	_ "{{name}}/validators"
 	_ "{{name}}/schedules"

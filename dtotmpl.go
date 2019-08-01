@@ -3,7 +3,7 @@ package main
 const dtoTmpl = "package model\n" +
 	"\n" +
 	"import (\n" +
-	"	{{if has . \"uuid\"}}\"gitee.com/jarnpher_rice/micro-core/uuid\"\n{{end}}" +
+	"	{{if has . \"uuid\"}}\"github.com/Jarnpher553/micro-core/uuid\"\n{{end}}" +
 	"	{{if has . \"time\"}}\"time\"\n{{end}}" +
 	")\n" +
 	"\n" +

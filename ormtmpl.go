@@ -6,7 +6,7 @@ var ormTmpl = fmt.Sprintf(`package model
 
 import (
 	{{if has . "time"}}"time"
-	"gitee.com/jarnpher_rice/micro-core/model/orm"{{else}}"gitee.com/jarnpher_rice/micro-core/model/orm"{{end}}
+	"github.com/Jarnpher553/micro-core/model/orm"{{else}}"github.com/Jarnpher553/micro-core/model/orm"{{end}}
 )
 {{range .}} 
 type {{ title .Name}} struct { {{range .Fields}} 

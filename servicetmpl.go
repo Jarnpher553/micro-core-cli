@@ -7,11 +7,11 @@ import (
 	"{{name}}/model"
 	"{{name}}/middlewares"
 
-	"gitee.com/jarnpher_rice/micro-core/copier"
-	"gitee.com/jarnpher_rice/micro-core/erro"
-	"gitee.com/jarnpher_rice/micro-core/model/dto"
-	"gitee.com/jarnpher_rice/micro-core/repo"
-	"gitee.com/jarnpher_rice/micro-core/service"
+	"github.com/Jarnpher553/micro-core/copier"
+	"github.com/Jarnpher553/micro-core/erro"
+	"github.com/Jarnpher553/micro-core/model/dto"
+	"github.com/Jarnpher553/micro-core/repo"
+	"github.com/Jarnpher553/micro-core/service"
 )
 
 type {{title .Name}} struct {

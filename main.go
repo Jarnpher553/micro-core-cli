@@ -112,7 +112,7 @@ func main() {
 			_, _ = f.WriteString(`package validators
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/validator"
+	"github.com/Jarnpher553/micro-core/validator"
 	"reflect"
 	"regexp"
 )
@@ -134,7 +134,7 @@ func phone(
 			_, _ = f.WriteString(`package validators
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/validator"
+	"github.com/Jarnpher553/micro-core/validator"
 )
 
 func init() {
@@ -146,7 +146,7 @@ func init() {
 			_, _ = f.WriteString(`package middlewares
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/service"
+	"github.com/Jarnpher553/micro-core/service"
 )
 
 func Permission(code string) service.Middleware {
@@ -168,7 +168,7 @@ func Permission(code string) service.Middleware {
 			_, _ = f.WriteString(`package schedules
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/scheduler"
+	"github.com/Jarnpher553/micro-core/scheduler"
 )
 
 func init() {
@@ -180,7 +180,7 @@ func init() {
 			_, _ = f.WriteString(`package schedules
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/scheduler"
+	"github.com/Jarnpher553/micro-core/scheduler"
 )
 
 func Demo(ops *scheduler.Options){
@@ -290,7 +290,7 @@ func Demo(ops *scheduler.Options){
 			_, _ = f.WriteString(`package validators
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/validator"
+	"github.com/Jarnpher553/micro-core/validator"
 	"reflect"
 	"regexp"
 )
@@ -312,7 +312,7 @@ func phone(
 			_, _ = f.WriteString(`package validators
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/validator"
+	"github.com/Jarnpher553/micro-core/validator"
 )
 
 func init() {
@@ -324,7 +324,7 @@ func init() {
 			_, _ = f.WriteString(`package middlewares
 
 import (
-	"gitee.com/jarnpher_rice/micro-core/service"
+	"github.com/Jarnpher553/micro-core/service"
 )
 
 func Permission(code string) service.Middleware {
