@@ -95,7 +95,6 @@ func main() {
 
 			f, _ = os.Create("go.mod")
 			_, _ = f.WriteString("module " + name + "\n")
-			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
 			mt := template.Must(template.New("main").Funcs(template.FuncMap{"title": strings.Title, "join": strings.Join, "name": Name, "services": Services}).Parse(mainTmpl))
@@ -274,7 +273,6 @@ func init() {
 
 			f, _ = os.Create("go.mod")
 			_, _ = f.WriteString("module " + name + "\n")
-			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
 			mt := template.Must(template.New("main").Funcs(template.FuncMap{"title": strings.Title, "join": strings.Join, "name": Name, "services": Services}).Parse(mainTmpl))
