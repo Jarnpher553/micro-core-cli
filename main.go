@@ -120,7 +120,7 @@ import (
 )
 
 func phone(v *Validate, fl FieldLevel) bool {
-	if f, ok := fl.Field().Interface().()(string); ok {
+	if f, ok := fl.Field().Interface().(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
 		return ret
@@ -310,7 +310,7 @@ import (
 )
 
 func phone(v *Validate, fl FieldLevel) bool {
-	if f, ok := fl.Field().Interface().()(string); ok {
+	if f, ok := fl.Field().Interface().(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
 		return ret

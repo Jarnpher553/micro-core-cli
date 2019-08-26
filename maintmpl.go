@@ -10,8 +10,9 @@ import (
 	"github.com/Jarnpher553/micro-core/server"
 	"github.com/Jarnpher553/micro-core/service"
 	"{{name}}/services"
-	_ "{{name}}/validators"
-	_ "{{name}}/schedules"
+	//_ "{{name}}/validators"
+	//_ "{{name}}/error"
+	//_ "{{name}}/schedules"
 )
 
 func main() {
