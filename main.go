@@ -94,7 +94,7 @@ func main() {
 			_, _ = f.WriteString(yaml)
 
 			f, _ = os.Create("go.mod")
-			_, _ = f.WriteString("module " + name)
+			_, _ = f.WriteString("module " + name + "\n")
 			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
@@ -273,7 +273,7 @@ func init() {
 			_, _ = f.WriteString(yaml)
 
 			f, _ = os.Create("go.mod")
-			_, _ = f.WriteString("module " + name)
+			_, _ = f.WriteString("module " + name + "\n")
 			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
