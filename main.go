@@ -87,6 +87,7 @@ func main() {
 			_ = os.MkdirAll("./middlewares", os.ModePerm)
 			_ = os.MkdirAll("./static", os.ModePerm)
 			_ = os.MkdirAll("./schedules", os.ModePerm)
+			_ = os.MkdirAll("./error", os.ModePerm)
 
 			//新建文件
 			f, _ := os.Create("config.yaml")
@@ -94,6 +95,7 @@ func main() {
 
 			f, _ = os.Create("go.mod")
 			_, _ = f.WriteString("module " + name)
+			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
 			mt := template.Must(template.New("main").Funcs(template.FuncMap{"title": strings.Title, "join": strings.Join, "name": Name, "services": Services}).Parse(mainTmpl))
@@ -117,11 +119,8 @@ import (
 	"regexp"
 )
 
-func phone(
-	v *validator.Validate, topStruct reflect.Value, currentStructOrField reflect.Value,
-	field reflect.Value, fieldType reflect.Type, fieldKind reflect.Kind, param string,
-) bool {
-	if f, ok := field.Interface().(string); ok {
+func phone(v *Validate, fl FieldLevel) bool {
+	if f, ok := fl.Field().Interface().()(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
 		return ret
@@ -187,6 +186,18 @@ func Demo(ops *scheduler.Options){
 	//Doing something...
 }
 `)
+			f, _ = os.Create("./error/error.go")
+			_, _ = f.WriteString(`package error
+
+import "github.com/Jarnpher553/micro-core/erro"
+
+const (
+	//ErrDateSelect = 5000
+)
+
+func init() {
+	//erro.Register(ErrDateSelect, "日期选择有误")
+}`)
 
 			log.Println("generate success")
 		},
@@ -254,6 +265,8 @@ func Demo(ops *scheduler.Options){
 			_ = os.MkdirAll("./validators", os.ModePerm)
 			_ = os.MkdirAll("./middlewares", os.ModePerm)
 			_ = os.MkdirAll("./static", os.ModePerm)
+			_ = os.MkdirAll("./schedules", os.ModePerm)
+			_ = os.MkdirAll("./error", os.ModePerm)
 
 			//新建文件
 			f, _ := os.Create("config.yaml")
@@ -261,6 +274,7 @@ func Demo(ops *scheduler.Options){
 
 			f, _ = os.Create("go.mod")
 			_, _ = f.WriteString("module " + name)
+			_, _ = f.WriteString("require github.com/Jarnpher553/micro-core")
 
 			f, _ = os.Create("main.go")
 			mt := template.Must(template.New("main").Funcs(template.FuncMap{"title": strings.Title, "join": strings.Join, "name": Name, "services": Services}).Parse(mainTmpl))
@@ -295,11 +309,8 @@ import (
 	"regexp"
 )
 
-func phone(
-	v *validator.Validate, topStruct reflect.Value, currentStructOrField reflect.Value,
-	field reflect.Value, fieldType reflect.Type, fieldKind reflect.Kind, param string,
-) bool {
-	if f, ok := field.Interface().(string); ok {
+func phone(v *Validate, fl FieldLevel) bool {
+	if f, ok := fl.Field().Interface().()(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
 		return ret
@@ -342,6 +353,41 @@ func Permission(code string) service.Middleware {
 				_ = st.Execute(f, v)
 			}
 
+			f, _ = os.Create("./schedules/schedule.go")
+			_, _ = f.WriteString(`package schedules
+
+import (
+	"github.com/Jarnpher553/micro-core/scheduler"
+)
+
+func init() {
+	scheduler.Assign(scheduler.Every(5*scheduler.Second), Demo)
+}
+`)
+
+			f, _ = os.Create("./schedules/demo.go")
+			_, _ = f.WriteString(`package schedules
+
+import (
+	"github.com/Jarnpher553/micro-core/scheduler"
+)
+
+func Demo(ops *scheduler.Options){
+	//Doing something...
+}
+`)
+			f, _ = os.Create("./error/error.go")
+			_, _ = f.WriteString(`package error
+
+import "github.com/Jarnpher553/micro-core/erro"
+
+const (
+	//ErrDateSelect = 5000
+)
+
+func init() {
+	//erro.Register(ErrDateSelect, "日期选择有误")
+}`)
 			log.Println("generate success")
 		},
 	}
