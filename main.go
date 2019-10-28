@@ -87,7 +87,7 @@ func main() {
 			_ = os.MkdirAll("./middlewares", os.ModePerm)
 			_ = os.MkdirAll("./static", os.ModePerm)
 			_ = os.MkdirAll("./schedules", os.ModePerm)
-			_ = os.MkdirAll("./error", os.ModePerm)
+			_ = os.MkdirAll("./errs", os.ModePerm)
 
 			//新建文件
 			f, _ := os.Create("config.yaml")
@@ -114,11 +114,10 @@ func main() {
 
 import (
 	"github.com/Jarnpher553/micro-core/validator"
-	"reflect"
 	"regexp"
 )
 
-func phone(v *Validate, fl FieldLevel) bool {
+func phone(v *validator.Validate, fl validator.FieldLevel) bool {
 	if f, ok := fl.Field().Interface().(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
@@ -185,8 +184,8 @@ func Demo(ops *scheduler.Options){
 	//Doing something...
 }
 `)
-			f, _ = os.Create("./error/error.go")
-			_, _ = f.WriteString(`package error
+			f, _ = os.Create("./errs/error.go")
+			_, _ = f.WriteString(`package errs
 
 import "github.com/Jarnpher553/micro-core/erro"
 
@@ -265,7 +264,7 @@ func init() {
 			_ = os.MkdirAll("./middlewares", os.ModePerm)
 			_ = os.MkdirAll("./static", os.ModePerm)
 			_ = os.MkdirAll("./schedules", os.ModePerm)
-			_ = os.MkdirAll("./error", os.ModePerm)
+			_ = os.MkdirAll("./errs", os.ModePerm)
 
 			//新建文件
 			f, _ := os.Create("config.yaml")
@@ -303,11 +302,10 @@ func init() {
 
 import (
 	"github.com/Jarnpher553/micro-core/validator"
-	"reflect"
 	"regexp"
 )
 
-func phone(v *Validate, fl FieldLevel) bool {
+func phone(v *validator.Validate, fl validator.FieldLevel) bool {
 	if f, ok := fl.Field().Interface().(string); ok {
 		reg := regexp.MustCompile("1\\d{10}")
 		ret := reg.MatchString(f)
@@ -374,8 +372,8 @@ func Demo(ops *scheduler.Options){
 	//Doing something...
 }
 `)
-			f, _ = os.Create("./error/error.go")
-			_, _ = f.WriteString(`package error
+			f, _ = os.Create("./errs/error.go")
+			_, _ = f.WriteString(`package errs
 
 import "github.com/Jarnpher553/micro-core/erro"
 
